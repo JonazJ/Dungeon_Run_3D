@@ -7,20 +7,19 @@ public class PlayerController : MonoBehaviour
 {
 
     public float speed;
-    private int score;
-    //public UICharInfo scoreText;
-    public Text scoreText;
+    private GameController controller;
 
-    // Use this for initialization
+
     void Start()
     {
-        scoreText = GetComponent<Text>();
-        score = 0;
-        //Ger null reference då text inte fungerar som det ska
-        //scoreText.text = "Score " + score;
+        GameObject tmp = GameObject.FindGameObjectWithTag("GameController");
+        controller = tmp.GetComponent<GameController>();
+        if (controller == null)
+        {
+            Debug.LogError("Unable to find the GameController script");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -39,14 +38,15 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "pickup")
+        if (other.tag == "pickup")
         {
             other.gameObject.SetActive(false);
-            //Ger null reference då text inte fungerar som det ska
-            //score++;
-            //scoreText.text = "Score " + score;
-
+            controller.AddScore(1);
         }
+        else
+        {
+            Debug.LogError("Unknown itemcollision");
+        }
+        
     }
-
 }

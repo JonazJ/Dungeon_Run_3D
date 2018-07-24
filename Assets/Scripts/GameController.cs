@@ -49,7 +49,8 @@ public class GameController : MonoBehaviour {
             minuteCount++;
             secondsCount = 0;
         }
-
+        // Toggle On/Off the Manu during the game.
+        // To Fix!! Add So game and inputs gets Paused!
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if(Paused == true)
@@ -67,16 +68,20 @@ public class GameController : MonoBehaviour {
             }
         }
 
-        if (gameEnded == true)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                Scene level = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(level.name);
-            }
-        }
+
+        // To fix!!  Message after ended game with points, time and message before going back to menu.
+        //if (gameEnded == true)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Space))
+        //    {
+        //        Scene level = SceneManager.GetActiveScene();
+        //        SceneManager.LoadScene(level.name);
+        //    }
+        //}
     }
 
+
+    // Here is what will happen during certain steppes along the games progression.
     public void EndGame()
     {
         gameEnded = true;
@@ -95,27 +100,17 @@ public class GameController : MonoBehaviour {
         }
         else if (score == 16)
         {
-            endText.text = "Okey game over, nothing more to see!";
-        }
-        else if (score == 16)
-        {
             endText.text = "This time you actually finished the game. Impressive!";
-
-
         }
         else
         {
-
             endText.gameObject.SetActive(true);
 
         }
-
-
-
-
         
     }
 
+    // Method for updating score and pickups are gathered.
     public void AddScore(int points)
     {
         score += points;

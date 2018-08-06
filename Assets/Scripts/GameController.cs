@@ -84,15 +84,11 @@ public class GameController : MonoBehaviour {
     // Here is what will happen during certain steppes along the games progression.
     public void EndGame()
     {
-        gameEnded = true;
+
         if ( score == 5 )
         {
-            endText.text = "Gratz, you've finished the game.";
+            endText.text = "Time to Advance to next level";
             endText.gameObject.SetActive(true);
-        }
-        else if ( score == 6 )
-        {
-            endText.text = "So, you're doing everything...";
         }
         else if (score ==  8)
         {
@@ -100,7 +96,7 @@ public class GameController : MonoBehaviour {
         }
         else if (score == 16)
         {
-            endText.text = "This time you actually finished the game. Impressive!";
+            gameEnded = true;
         }
         else
         {

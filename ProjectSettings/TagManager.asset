@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - pickup
+  - Traplvl1
+  - Traplvl2
+  - Traplvl3
   layers:
   - Default
   - TransparentFX

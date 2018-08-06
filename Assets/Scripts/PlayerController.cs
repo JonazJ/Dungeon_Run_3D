@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Text so i can commit again
 
 public class PlayerController : MonoBehaviour
 {

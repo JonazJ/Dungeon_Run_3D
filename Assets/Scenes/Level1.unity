@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4514029, g: 0.5008957, b: 0.572319, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140213, g: 0.5008952, b: 0.57231814, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -318,6 +318,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 800
+  target: {fileID: 0}
+  targetDashDirection: {x: 0, y: 0, z: 0}
+  sceneCamera: {fileID: 0}
+  canMove: 1
+  walkSpeed: 1.35
+  runSpeed: 6
+  slopeAmount: 0.5
+  onAllowableSlope: 0
+  useNavMesh: 0
+  goal: {fileID: 0}
+  gravity: -9.8
+  canJump: 0
+  isGrounded: 0
+  jumpSpeed: 12
+  doublejumpSpeed: 12
+  canDoubleJump: 0
+  isDoubleJumping: 0
+  fallDelay: 0.2
+  inAirSpeed: 8
+  rollSpeed: 8
+  rollduration: 0
+  weapon: 0
+  isRelax: 0
+  canAction: 0
+  isStrafing: 0
+  isDead: 0
+  knockbackMultiplier: 1
 --- !u!95 &20555320
 Animator:
   serializedVersion: 3
@@ -360,7 +387,7 @@ NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 20555318}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 5
@@ -409,7 +436,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 20555318}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad159c285c6e6ae4caa1641e7eff37c6, type: 3}
   m_Name: 
@@ -449,7 +476,7 @@ MeshCollider:
   m_GameObject: {fileID: 20555318}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -6881,6 +6908,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1000
+  target: {fileID: 0}
+  targetDashDirection: {x: 0, y: 0, z: 0}
+  sceneCamera: {fileID: 0}
+  canMove: 1
+  walkSpeed: 1.35
+  runSpeed: 6
+  slopeAmount: 0.5
+  onAllowableSlope: 0
+  useNavMesh: 0
+  goal: {fileID: 0}
+  gravity: -9.8
+  canJump: 0
+  isGrounded: 0
+  jumpSpeed: 12
+  doublejumpSpeed: 12
+  canDoubleJump: 0
+  isDoubleJumping: 0
+  fallDelay: 0.2
+  inAirSpeed: 8
+  rollSpeed: 8
+  rollduration: 0
+  weapon: 0
+  isRelax: 0
+  canAction: 0
+  isStrafing: 0
+  isDead: 0
+  knockbackMultiplier: 1
 --- !u!54 &1166414198
 Rigidbody:
   m_ObjectHideFlags: 0

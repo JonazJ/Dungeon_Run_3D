@@ -70,7 +70,8 @@ public class PlayerController : MonoBehaviour
 // Actions.
     [HideInInspector]
     public bool canAction = false;
-    //TA bort denna och allt kukar ur
+    
+    //Ta bort denna och allt kukar ur---
     [HideInInspector]
     public bool isStrafing = false;
     //----------------------------------
@@ -246,11 +247,14 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             controller.AddScore(1);
         }
+
         else
         {
             Debug.LogError("Unknown itemcollision");
         }
-        
+
+
+
     }
 
 

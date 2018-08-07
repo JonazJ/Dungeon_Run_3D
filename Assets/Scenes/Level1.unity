@@ -337,10 +337,6 @@ MonoBehaviour:
   isDoubleJumping: 0
   fallDelay: 0.2
   inAirSpeed: 8
-  rollSpeed: 8
-  rollduration: 0
-  weapon: 0
-  isRelax: 0
   canAction: 0
   isStrafing: 0
   isDead: 0
@@ -6927,10 +6923,6 @@ MonoBehaviour:
   isDoubleJumping: 0
   fallDelay: 0.2
   inAirSpeed: 8
-  rollSpeed: 8
-  rollduration: 0
-  weapon: 0
-  isRelax: 0
   canAction: 0
   isStrafing: 0
   isDead: 0

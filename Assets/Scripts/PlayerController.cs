@@ -67,24 +67,14 @@ public class PlayerController : MonoBehaviour
     float maxVelocity = 2f;
     float minVelocity = -2f;
 
-    //Rolling.
-    public float rollSpeed = 8;
-    bool isRolling = false;
-    public float rollduration;
-
-    //Weapon and Shield
-    [HideInInspector]
-    public Weapon weapon;
-    int rightWeapon = 0;
-    int leftWeapon = 0;
-    [HideInInspector]
-    public bool isRelax = false;
-
-    //Strafing / Actions.
+// Actions.
     [HideInInspector]
     public bool canAction = false;
+    //TA bort denna och allt kukar ur
     [HideInInspector]
     public bool isStrafing = false;
+    //----------------------------------
+
     [HideInInspector]
     public bool isDead = false;
     public float knockbackMultiplier = 1f;
@@ -93,15 +83,8 @@ public class PlayerController : MonoBehaviour
     //Input variables.
     float inputHorizontal = 0f;
     float inputVertical = 0f;
-    float inputDashVertical = 0f;
-    float inputDashHorizontal = 0f;
-    float inputBlock = 0f;
     bool inputLightHit;
     bool inputDeath;
-    bool inputAttackR;
-    bool inputAttackL;
-    bool inputCastL;
-    bool inputCastR;
     bool inputJump;
 
     #endregion
@@ -325,10 +308,8 @@ public class PlayerController : MonoBehaviour
         forward = forward.normalized;
         //Right vector relative to the camera always orthogonal to the forward vector.
         Vector3 right = new Vector3(forward.z, 0, -forward.x);
-        if (!isRolling)
-        {
-            targetDashDirection = inputDashHorizontal * right + inputDashVertical * -forward;
-        }
+        
+        
         inputVec = inputHorizontal * right + inputVertical * forward;
     }
 
@@ -337,7 +318,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void RotateTowardsMovementDir()
     {
-        if (inputVec != Vector3.zero && !isStrafing && !isRolling)
+        if (inputVec != Vector3.zero && !isStrafing)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(inputVec), Time.deltaTime * rotationSpeed);
         }
@@ -373,12 +354,7 @@ public class PlayerController : MonoBehaviour
                     newVelocity = motion * runSpeed;
                 }
                 //Rolling uses rolling speed and direction.
-                if (isRolling)
-                {
-                    //Force the dash movement to 1.
-                    targetDashDirection.Normalize();
-                    newVelocity = rollSpeed * targetDashDirection;
-                }
+
             }
         }
         else
@@ -390,7 +366,7 @@ public class PlayerController : MonoBehaviour
         {
             RotateTowardsMovementDir();
         }
-        if (isStrafing && !isRelax)
+        if (isStrafing)
         {
             //Make character face target.
             Quaternion targetRotation;

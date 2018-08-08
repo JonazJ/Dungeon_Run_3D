@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
+    //Gates
+    public GameObject gateHigh;
+    public GameObject gateLow;
 
     //ScoreText;
     public Text scoreText;
@@ -20,24 +23,28 @@ public class GameController : MonoBehaviour {
     private float secondsCount;
     private float minuteCount;
 
-    //ToggleGameMenu
+    //GameMenu && Paus
     private bool Paused = false;
     public GameObject Canvas;
+    public GameObject TutorialWindow;
+
     void Start ()
     {
+        Paused = true;
+        Time.timeScale = 0f;
         gameEnded = false;
         endText.gameObject.SetActive(false);
         Canvas.gameObject.SetActive(false);
+        gateHigh.gameObject.SetActive(true);
+        gateLow.gameObject.SetActive(true);
 
-        //Removing cursor during gameplay
-        Cursor.visible = false;
+    //Removing cursor during gameplay
+    Cursor.visible = false;
 
     }
-	
-
 	void Update ()
     {
-        
+         
         //Set the timer in UI
         if (Paused == false)
         {
@@ -53,57 +60,49 @@ public class GameController : MonoBehaviour {
         // To Fix!! Add So game and inputs gets Paused!
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(Paused == true)
-            {
-                Canvas.gameObject.SetActive(false);
-                Cursor.visible = false;
-                Paused = false;
-
-            }
-            else
-            {
-                Canvas.gameObject.SetActive(true);
-                Cursor.visible = true;
-                Paused = true;
-            }
+            PausMenu();
         }
+        
+        while (gameEnded == true)
+        {
 
-
-        // To fix!!  Message after ended game with points, time and message before going back to menu.
-        //if (gameEnded == true)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        Scene level = SceneManager.GetActiveScene();
-        //        SceneManager.LoadScene(level.name);
-        //    }
-        //}
+        }
     }
 
 
     // Here is what will happen during certain steppes along the games progression.
-    public void EndGame()
+    public void EndGame(bool alive)
     {
-
-        if ( score == 5 )
+        if (alive == false)
         {
-            endText.text = "Time to Advance to next level";
-            endText.gameObject.SetActive(true);
-        }
-        else if (score ==  8)
-        {
-            endText.text = "Stop playing already!";
-        }
-        else if (score == 16)
-        {
-            gameEnded = true;
+            // Defeat action
         }
         else
         {
-            endText.gameObject.SetActive(true);
-
+            //Winning action
         }
+
+        gameEnded = true;
+    }
         
+    //Method for handling Pausing
+    public void PausMenu()
+    {
+        if (Paused == true)
+        {
+            TutorialWindow.gameObject.SetActive(false);
+            Canvas.gameObject.SetActive(false);
+            Cursor.visible = false;
+            Paused = false;
+            Time.timeScale = 1;
+        }
+        else
+        {
+            Canvas.gameObject.SetActive(true);
+            Cursor.visible = true;
+            Paused = true;
+            Time.timeScale = 0f;
+        }
     }
 
     // Method for updating score and pickups are gathered.
@@ -112,9 +111,42 @@ public class GameController : MonoBehaviour {
         score += points;
         scoreText.text = "Score: " + score;
 
-        if (score >= 5)
+        if (score == 1)
         {
-            EndGame();
+            // Monster Spawning
+
         }
+        else if (score == 10)
+        {
+
+            gateLow.gameObject.SetActive(false);
+
+        }
+        else if (score == 15)
+        {
+            gateHigh.gameObject.SetActive(false);
+        }
+        else if (score == 16)
+        {
+            //  endText.text = "You've won! Do you feel the positive emotions emerging!";
+            EndGame(true);
+        }
+
     }
+
+    //public void TrapHandler()
+    //{
+    //    if (gateLow == true)
+    //    {
+    //        gateHigh.gameObject.SetActive(true);
+    //        gateLow.gameObject.SetActive(false);
+    //    }
+    //    else
+    //    {
+    //        gateHigh.gameObject.SetActive(false);
+    //        gateLow.gameObject.SetActive(true);
+    //    }
+    //}
+
+
 }

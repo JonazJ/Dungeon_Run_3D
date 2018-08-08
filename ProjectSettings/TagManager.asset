@@ -7,7 +7,6 @@ TagManager:
   - pickup
   - GateLow
   - GateHigh
-  - Enemy
   layers:
   - Default
   - TransparentFX

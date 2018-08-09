@@ -666,8 +666,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480.00006, y: -129.7586}
-  m_SizeDelta: {x: 780.0001, y: 129.5172}
+  m_AnchoredPosition: {x: 480.00006, y: -129.75}
+  m_SizeDelta: {x: 780.0001, y: 129.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &129770074
 MonoBehaviour:
@@ -800,8 +800,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480.00006, y: -388.793}
-  m_SizeDelta: {x: 780.0001, y: 129.5172}
+  m_AnchoredPosition: {x: 480.00006, y: -388.75}
+  m_SizeDelta: {x: 780.0001, y: 129.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &157269360
 MonoBehaviour:
@@ -967,9 +967,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Students
-
-'
+  m_Text: Students
 --- !u!222 &272361634
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1789,7 +1787,13 @@ MonoBehaviour:
 
     Japanese Coin
 
-    Unity Particle Pack'
+    Dungeon Creator Kit LITE
+
+    Dungeon Ground
+
+    RPG Character Animation Pack
+
+    SimpleSkeletonFree'
 --- !u!222 &1054829270
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2857,8 +2861,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480.00006, y: -259.2758}
-  m_SizeDelta: {x: 780.0001, y: 129.5172}
+  m_AnchoredPosition: {x: 480.00006, y: -259.25}
+  m_SizeDelta: {x: 780.0001, y: 129.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918962734
 MonoBehaviour:
@@ -3259,8 +3263,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 480.00006, y: -518.3102}
-  m_SizeDelta: {x: 780.0001, y: 129.5172}
+  m_AnchoredPosition: {x: 480.00006, y: -518.25}
+  m_SizeDelta: {x: 780.0001, y: 129.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2023226046
 MonoBehaviour:

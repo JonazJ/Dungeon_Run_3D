@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
     private int score = 0;
 
     //EndText
-    public Text endText;
+    public Text infoText;
     private bool gameEnded;
 
     //TimeText
@@ -25,31 +25,36 @@ public class GameController : MonoBehaviour {
 
     //GameMenu && Paus
     private bool Paused = false;
-    public GameObject Canvas;
-    public GameObject TutorialWindow;
+    public GameObject messageWindow;
+    public GameObject restartBtn;
+    public GameObject backBtn;
+    public Button startGameBtn;
 
-    void Start ()
+
+    void Start()
     {
         Paused = true;
         Time.timeScale = 0f;
         gameEnded = false;
-        endText.gameObject.SetActive(false);
-        Canvas.gameObject.SetActive(false);
+        infoText.gameObject.SetActive(true);
         gateHigh.gameObject.SetActive(true);
         gateLow.gameObject.SetActive(true);
+        startGameBtn.gameObject.SetActive(true);
+        restartBtn.gameObject.SetActive(false);
+        backBtn.gameObject.SetActive(false);
+        infoText.text = "Objective: \nRetrieve all the coins without dying. \n \nHow to move: \nW - Forward \nS - Backward \nA - Left \nD - Right \n \nPress Esc to toggle Menu.";
 
-    //Removing cursor during gameplay
-    Cursor.visible = false;
-
+        // Listener for Start game button
+        startGameBtn.onClick.AddListener(TaskOnClick);
     }
-	void Update ()
+
+    void Update()
     {
-         
         //Set the timer in UI
         if (Paused == false)
         {
-        secondsCount += Time.deltaTime;
-        timerText.text = minuteCount + ":" + (int)secondsCount;
+            secondsCount += Time.deltaTime;
+            timerText.text = minuteCount + ":" + (int)secondsCount;
         }
         if (secondsCount >= 60)
         {
@@ -60,93 +65,87 @@ public class GameController : MonoBehaviour {
         // To Fix!! Add So game and inputs gets Paused!
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PausMenu();
+            GameMenu(1);
         }
         
-        while (gameEnded == true)
-        {
-
-        }
+    }
+    void TaskOnClick()
+    {
+        GameMenu(0);
     }
 
-
     // Here is what will happen during certain steppes along the games progression.
-    public void EndGame(bool alive)
+    public void Result(bool alive)
     {
-        if (alive == false)
+        if (alive == true)
         {
-            // Defeat action
+            // Winning action 
+            infoText.text = "Gongratulations Dear Winner! \n" + "You managed to defeat the evil skeleton in level 1. \n" + "Time: " + minuteCount + ":" + (int)secondsCount + "\tScore: " + score;
         }
         else
         {
-            //Winning action
+            // Defeat action
+            infoText.text = "You died like an undead due to asphyxiation \n" + "Thank you for playing all aspects of our game! \n" + "Time: " + minuteCount + ":" + (int)secondsCount + "Score: " + score;
         }
-
-        gameEnded = true;
+        GameMenu(3);
     }
-        
+
     //Method for handling Pausing
-    public void PausMenu()
+    public void GameMenu(int state)
     {
+        switch (state)
+        {
+            case 1:
+                restartBtn.gameObject.SetActive(true);
+                backBtn.gameObject.SetActive(true);
+                break;
+            case 2:
+                infoText.gameObject.SetActive(true);
+                startGameBtn.gameObject.SetActive(true);
+                break;
+            case 3:
+                infoText.gameObject.SetActive(true);
+                restartBtn.gameObject.SetActive(true);
+                backBtn.gameObject.SetActive(true);
+                break;
+            case 0:
+                break;
+        }
         if (Paused == true)
         {
-            TutorialWindow.gameObject.SetActive(false);
-            Canvas.gameObject.SetActive(false);
+            messageWindow.gameObject.SetActive(false);
             Cursor.visible = false;
             Paused = false;
             Time.timeScale = 1;
+            startGameBtn.gameObject.SetActive(false);
+            restartBtn.gameObject.SetActive(false);
+            backBtn.gameObject.SetActive(false);
         }
         else
         {
-            Canvas.gameObject.SetActive(true);
+            messageWindow.gameObject.SetActive(true);
             Cursor.visible = true;
             Paused = true;
             Time.timeScale = 0f;
         }
-    }
 
+    }
     // Method for updating score and pickups are gathered.
     public void AddScore(int points)
     {
         score += points;
         scoreText.text = "Score: " + score;
-
-        if (score == 1)
+        if (score == 5)
         {
-            // Monster Spawning
-
-        }
-        else if (score == 10)
-        {
-
             gateLow.gameObject.SetActive(false);
-
         }
-        else if (score == 15)
+        else if (score == 9)
         {
             gateHigh.gameObject.SetActive(false);
         }
         else if (score == 16)
         {
-            //  endText.text = "You've won! Do you feel the positive emotions emerging!";
-            EndGame(true);
+            Result(true);
         }
-
     }
-
-    //public void TrapHandler()
-    //{
-    //    if (gateLow == true)
-    //    {
-    //        gateHigh.gameObject.SetActive(true);
-    //        gateLow.gameObject.SetActive(false);
-    //    }
-    //    else
-    //    {
-    //        gateHigh.gameObject.SetActive(false);
-    //        gateLow.gameObject.SetActive(true);
-    //    }
-    //}
-
-
 }

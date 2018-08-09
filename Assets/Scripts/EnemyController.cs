@@ -11,10 +11,12 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent nav;               // Reference to the nav mesh agent.
 
 
-
+    private GameController controller;
     private Animator animator;
     private Quaternion initRotation;
 
+    public PlayerController playerController;
+    public GameObject playerObject;
 
     private int currentAnimation;
     private List<string> animations;
@@ -65,7 +67,28 @@ public class EnemyController : MonoBehaviour
         animator.SetFloat("Velocity Z", velocityZel / speed);
         animator.SetBool("Moving", true);
         //---------------------------------------------------------------------------
-        
+
+
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            //Removes the player object, for debugging.
+            //other.gameObject.SetActive(false);
+            //controller.AddScore(10);
+            //controller.gateLow.gameObject.SetActive(false);
+            //controller.EndGame(false);
+
+            playerController.Death();
+            
+        }
+
+        else
+        {
+            Debug.LogError("Unknown itemcollision");
+        }
     }
 
 }

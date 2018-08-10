@@ -6469,6 +6469,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 1}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 480.00006, y: -518.0652}
   m_SizeDelta: {x: 780.0001, y: 129.86957}
 =======
@@ -6479,6 +6480,10 @@ RectTransform:
   m_AnchoredPosition: {x: 480.00006, y: -685.8124}
   m_SizeDelta: {x: 780.0001, y: 226.37494}
 >>>>>>> parent of cac05f4... Hot fixe and minor extras.
+=======
+  m_AnchoredPosition: {x: 480.00006, y: -518.0652}
+  m_SizeDelta: {x: 780.0001, y: 129.86957}
+>>>>>>> parent of 033fa3e... Merge branch 'Attempt-to-push'
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853328054
 MonoBehaviour:
@@ -13692,6 +13697,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 1}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 480.00006, y: -259.06522}
   m_SizeDelta: {x: 780.0001, y: 388.13043}
 =======
@@ -13702,6 +13708,10 @@ RectTransform:
   m_AnchoredPosition: {x: 480.00006, y: -318.81244}
   m_SizeDelta: {x: 780.0001, y: 507.6249}
 >>>>>>> parent of cac05f4... Hot fixe and minor extras.
+=======
+  m_AnchoredPosition: {x: 480.00006, y: -259.06522}
+  m_SizeDelta: {x: 780.0001, y: 388.13043}
+>>>>>>> parent of 033fa3e... Merge branch 'Attempt-to-push'
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1880892923
 MonoBehaviour:

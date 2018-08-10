@@ -30,6 +30,9 @@ public class GameController : MonoBehaviour {
     public GameObject backBtn;
     public Button startGameBtn;
 
+    //Volume
+    public Text volumeText;
+    public Slider volumeSlider;
 
     void Start()
     {
@@ -71,6 +74,7 @@ public class GameController : MonoBehaviour {
     }
     void TaskOnClick()
     {
+        volumeSlider.gameObject.SetActive(false);
         GameMenu(0);
     }
 

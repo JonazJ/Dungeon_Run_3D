@@ -250,7 +250,7 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-            //Debug.LogError("Unknown itemcollision");
+            Debug.LogError("Unknown itemcollision");
         }
 
 
